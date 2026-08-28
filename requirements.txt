@@ -2,3 +2,4 @@ flask
 flask-cors
 pyTelegramBotAPI
 yt-dlp
+gunicorn
