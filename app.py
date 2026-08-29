@@ -48,10 +48,14 @@ def run_bot(token):
             bot.delete_message(message.chat.id, msg.message_id)
 
         except Exception as e:
-            bot.edit_message_text(f"❌ Hata oluştu: Link desteklenmiyor veya gizli bir profil olabilir.", chat_id=message.chat.id, message_id=msg.message_id)
+            bot.edit_message_text(f"❌ Hata Detayı: {str(e)}", chat_id=message.chat.id, message_id=msg.message_id)
 
     # Botun sürekli mesaj beklemesini sağla
     bot.polling(non_stop=True)
+
+@app.route('/')
+def home():
+    return "Bot Sunucusu Aktif ve Çalışıyor!"
 
 @app.route('/api/baslat', methods=['POST'])
 def baslat_api():
